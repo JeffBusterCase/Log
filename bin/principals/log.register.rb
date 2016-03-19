@@ -12,19 +12,33 @@ class Log
   #
   # => }
   @error = false
-  def register primaryKey, v #v must be a hash
+  def register primarKey, v #v must be a hash
     #analisar e ver se está da forma correta
-
-    if v[:not].defined?
-      v[:not].each { |k, val|
-        val.each_char { |char|
-          $stdout.puts "Invalid Input in '#{k} => #{v[k]}'. Input cannot include #{v[:not][k].join(', ')}." if v[k].include? char
-          @error = true if v[k].include? char
+    error = false
+    #Are in the correct form?
+    v.each {|k, val|
+      if !(@registerRule.include? k)
+        $stdout.puts "Warning:\nInvalid input tag '#{k}'!"
+        error = true
+      end
+    }
+    #Not contain proibited caracters?
+    if @registerRule.include? :not
+      @registerRule[:not].each { |k, val|
+        val.split('').each { |char|
+          if v[k] != nil
+            if v[k].include? char
+              $stdout.puts "Warning:",
+                           " Invalid Input in '#{k} => #{v[k]}'. Input cannot include #{@registerRule[:not][k].split('').join(', ')}."
+              error = true if v[k].include? char
+            end
+          end
         }
       }
     end
 
-    @temp[primaryKey.to_sym] = value if !@error
+    @temp[primarKey.to_sym] = v if !error
+    return true if !error
   end
   def login
 

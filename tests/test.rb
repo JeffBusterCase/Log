@@ -18,13 +18,17 @@ msg.registerRule = {
   }
 }
 
-msg.register 'first', {
+msg.register "first", {
   login: "Jefferson",
   password: "1234"
 }
 #Antes da mudança
-p comunicationSystem.temp
+p msg.temp
 
+msg.register "Second", {
+  loger: "Crypt",
+  passworder: "cyr%%"
+}
 
 #Após mudança
-p comunicationSystem.temp
+p msg.temp

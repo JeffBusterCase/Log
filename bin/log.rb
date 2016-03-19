@@ -2,6 +2,7 @@ require_relative "./principals/log"
 
 #Require It self
 ["constants",
+  "tempdatabase",
  "create",
  "crypt",
  "login",

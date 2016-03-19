@@ -7,6 +7,7 @@ class Log
   def initialize databaseBanc=false
     @databaseBanc = DataBanc.new if databaseBanc != false
     @databaseBanc = false if databaseBanc == false
+    @temp = {}
   end
 
 end
