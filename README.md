@@ -1,7 +1,7 @@
 # Log
 From Jpro-Express. Login system creator. Log
 <h5>Installing</h5>
-<p>Put the bin/principals/ in the PATH</p>
+<p>Put the <code>bin/principals/</code> in the <code>PATH</code></p>
 
 <h5>Try it Right Now!</h5>
 ```Ruby
@@ -39,3 +39,7 @@ From Jpro-Express. Login system creator. Log
 >
 >
 ```
+
+<h4>This is a pack from Jpro-Express</h4>
+
+<h2>Thanks for the clone!</h2>
