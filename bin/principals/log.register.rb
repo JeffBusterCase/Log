@@ -40,7 +40,4 @@ class Log
     @temp[primarKey.to_sym] = v if !error
     return true if !error
   end
-  def login
-
-  end
 end

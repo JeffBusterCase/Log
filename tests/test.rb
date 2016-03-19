@@ -9,26 +9,21 @@ msg.userData = {
   name: "",
   age: Fixnum
 }
-
 msg.registerRule = {
   login: String,
   password: String,
   not: {
-    password: "@*&%$#!"
+    password: '5123'
   }
 }
+msg.register 'randomKey', ({
+  login: 'jeff',
+  password: '1234'
+})
 
-msg.register "first", {
-  login: "Jefferson",
-  password: "1234"
-}
 #Antes da mudança
-p msg.temp
+p msg
 
-msg.register "Second", {
-  loger: "Crypt",
-  passworder: "cyr%%"
-}
 
 #Após mudança
-p msg.temp
+p msg
