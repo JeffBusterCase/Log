@@ -18,7 +18,7 @@ class Log
     #Are in the correct form?
     v.each {|k, val|
       if !(@registerRule.include? k)
-        $stdout.puts "Warning:\nInvalid input tag '#{k}'!"
+        raise "Warning:\nInvalid input tag '#{k}'!"
         error = true
       end
     }
@@ -28,7 +28,7 @@ class Log
         val.split('').each { |char|
           if v[k] != nil
             if v[k].include? char
-              $stdout.puts "Warning:",
+              raise "Warning:",
                            " Invalid Input in '#{k} => #{v[k]}'. Input cannot include #{@registerRule[:not][k].split('').join(', ')}."
               error = true if v[k].include? char
             end
