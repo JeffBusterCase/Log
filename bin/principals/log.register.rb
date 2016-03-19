@@ -28,8 +28,7 @@ class Log
         val.split('').each { |char|
           if v[k] != nil
             if v[k].include? char
-              raise "Warning:",
-                           " Invalid Input in '#{k} => #{v[k]}'. Input cannot include #{@registerRule[:not][k].split('').join(', ')}."
+              raise "Warning: Invalid Input in '#{k} => #{v[k]}'. Input cannot include #{@registerRule[:not][k].split('').join(', ')}."
               error = true if v[k].include? char
             end
           end
