@@ -1,4 +1,5 @@
 class Log
+  @last_login = nil
   def login log #log is a hash with the corrects requesteds inputs
     willReturnTrue = false
     if !@databaseBanc

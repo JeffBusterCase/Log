@@ -1,10 +1,12 @@
 class Log
   #--Register--
   attr_accessor :registerRule
+  attr_writer :registerKey_len
   # Example:
   # => instance.registerRule = {
   # =>     login: String,
   # =>     password: String,
+  # =>     primarKey: :password
   # =>     not: {password: "!#&\'*.(){[-_+=]}",
   # =>             login: etc
   # =>     }           #<= This need to be writed totaly correct
@@ -12,7 +14,7 @@ class Log
   #
   # => }
   @error = false
-  def register primarKey, v #v must be a hash
+  def register primarLabel, v #v must be a hash
     #analisar e ver se está da forma correta
     error = false
     #Are in the correct form?
@@ -35,8 +37,11 @@ class Log
         }
       }
     end
-
-    @temp[primarKey.to_sym] = v if !error
+    #Who is the primarKey?
+    @primarKey = v[:primarKey] if v.include? :primarKey #Else primarKey = :password
+    @last_login = primarLabel.to_sym
+    @temp[primarLabel.to_sym] = v if !error
+    self.crypt#Call Cipher and cipher the primarKey
     return true if !error
   end
 end

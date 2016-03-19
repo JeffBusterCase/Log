@@ -13,7 +13,7 @@ msg.registerRule = {
   login: String,
   password: String,
   not: {
-    password: '5123'
+    password: Default[:badChars]
   }
 }
 msg.register 'randomKey', ({
@@ -21,8 +21,20 @@ msg.register 'randomKey', ({
   password: '1234'
 })
 
+
+
+
+
+
+
 #Antes da mudança
 p msg
+
+
+
+
+
+
 
 
 #Após mudança

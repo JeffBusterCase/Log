@@ -12,6 +12,7 @@ From Jpro-Express. Login system creator. Log
 > log.registerRule = {
 >   login: String,
 >   password: String,
+>   primarKeyLen: 13, 
 >   not: {
 >     login: "!#$%¨&*( );:/\\,<>'\"][{}ºª°|-+=`^´",#can 'not' use any of this symbols
 >     password: "!#$%¨&*( );:/\\,<>'\"_][{}ºª°|-+=`^´"# otherwise raise Error

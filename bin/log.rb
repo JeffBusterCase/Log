@@ -1,5 +1,5 @@
 require_relative "./principals/log"
-
+require 'openssl'
 #Require It self
 ["constants",
   "tempdatabase",
@@ -17,3 +17,4 @@ require_relative "./principals/log"
  "table.new.rb"].each { |lib|
    require_relative "../databanc/log.databanc.#{lib}"
  }
+ include Log_Constants
