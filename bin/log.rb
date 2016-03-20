@@ -17,4 +17,8 @@ require 'openssl'
  "table.new.rb"].each { |lib|
    require_relative "../databanc/log.databanc.#{lib}"
  }
+ #Require Library
+ ["cortez"].each { |lib|
+   require_relative "../lib/#{lib}"
+ }
  include Log_Constants

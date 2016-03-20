@@ -6,8 +6,9 @@ class Log
   # => Instantiate
   def initialize databaseBanc=false
     @databaseBanc = DataBanc.new if databaseBanc != false
-    @databaseBanc = false if databaseBanc == false
-    @temp = {}
+    @databaseBanc = false if !databaseBanc
+    @temp = {} if !databaseBanc
+    @registerRule = {}
   end
 
 end

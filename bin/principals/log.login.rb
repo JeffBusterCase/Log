@@ -2,20 +2,19 @@ class Log
   @last_login = nil
   @last_log = nil
   def login loging #log is a hash with the corrects requesteds inputs
+    raise RuleNotDefinedException, "registerRule not defined yet!****" if @registerRule == nil
+
+    loging.each {|key_chave, value_valor|
+      raise InvalidInputException, "Undefined `:#{key_chave}'. Required> `:#{@meta}' <&> `:#{@primarKey}'<end" if !(@registerRule.include? key_chave)
+    }
     @last_log = loging
-    puts @last_log
     @last_login = loging[@meta].to_sym
     willReturnTrue = false
     if !@databaseBanc
-      puts "No databaseBanc"
       if @temp.include? loging[@meta].to_sym
-        puts "Yes include"
         stored_key = decrypt
         willReturnTrue = true if loging[@primarKey] == stored_key
-        p loging
-        puts loging[@primarKey],
-             "para",
-             decrypt
+
       end
       return willReturnTrue
     else
