@@ -23,7 +23,7 @@ minha_conta = {
 
 
 #Antes da mudança
-p msg
+p log
 log.register minha_conta
 
 puts "Entrou na conta, #{minha_conta[:name]} ? #{log.login(minha_conta)}",
@@ -31,7 +31,5 @@ puts "Entrou na conta, #{minha_conta[:name]} ? #{log.login(minha_conta)}",
 
 
 
-
-
 #Após mudança
-p msg
+p log
