@@ -3,37 +3,31 @@ require '../bin/log'
 =begin  Appending user type of data
 =end
 
-msg = Log.new
+log = Log.new
 
-msg.userData = {
-  name: "",
-  age: Fixnum
-}
-msg.registerRule = {
-  login: String,
-  password: String,
-  primarKey: :password,
-  meta: :login,
+log.registerRule = {
+  name: String,
+  senha: String,
+  meta: :name,
+  primarKey: :senha,
   not: {
-    password: Default[:badChars]
+    name: Default[:badChars],
+    senha: Default[:badChars]
   }
 }
-msg.register 'randomKey', ({
-  login: 'jeff',
-  password: '1234'
-})
 
-
-
-
-
+minha_conta = {
+  name: "Jefferson",
+  senha: '123456789jkds123'
+}
 
 
 #Antes da mudança
 p msg
+log.register minha_conta
 
-
-
+puts "Entrou na conta, #{minha_conta[:name]} ? #{log.login(minha_conta)}",
+     "Entrou na conta, nil? #{log.login(name: 'nil', senha: 'nil7777777777777')}"
 
 
 

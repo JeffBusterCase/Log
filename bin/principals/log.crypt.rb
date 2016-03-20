@@ -16,9 +16,9 @@ class Log
 
   def decrypter data
     decipher = OpenSSL::Cipher.new('AES-128-CFB')
-    if data.length >= 16
+    if @last_log.length >= 16
       # TODO: descryptograpth
-      decipher.key = data
+      decipher.key = @last_log[@primarKey]
       return (decipher.update(@temp[@last_login][@primarKey]) + decipher.final)
     else
       raise "Key.length too short\nMinimum of '16' caracters"
