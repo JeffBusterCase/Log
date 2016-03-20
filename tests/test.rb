@@ -17,7 +17,7 @@ log.registerRule = {
 }
 
 minha_conta = {
-  name: "Jefferson",
+  name: 'Jefferson',
   senha: '123456789abcdefghijk'
 }
 
