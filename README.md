@@ -25,13 +25,13 @@ From Jpro-Express. Login system creator. Log
 >
 > log.register ({
 >   login: 'Jefferson',
->   password: "1234"
+>   password: "1234567891011123"
 > })
 >
 >
 > puts log.login({               #
 >   login: 'Jefferson',          # => true
->   password: "1234"             #
+>   password: "1234567891011123" #
 > })                             #
 >
 > puts log.login({               #
