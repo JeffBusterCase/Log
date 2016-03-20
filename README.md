@@ -14,7 +14,7 @@ From Jpro-Express. Login system creator. Log
 > log.registerRule = {
 >   login: String,
 >   password: String,
->   primarKey: password,
+>   primarKey: :password,
 >   meta: :login,
 >   not: {
 >     login: "!#$%¨&*( );:/\\,<>'\"][{}ºª°|-+=`^´",#can 'not' use any of this symbols
