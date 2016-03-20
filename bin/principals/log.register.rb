@@ -6,7 +6,8 @@ class Log
   # => instance.registerRule = {
   # =>     login: String,
   # =>     password: String,
-  # =>     primarKey: :password
+  # =>     primarKey: :password,
+  # =>     meta: :login,
   # =>     not: {password: "!#&\'*.(){[-_+=]}",
   # =>             login: etc
   # =>     }           #<= This need to be writed totaly correct
@@ -14,7 +15,7 @@ class Log
   #
   # => }
   @error = false
-  def register primarLabel, v #v must be a hash
+  def register v #v must be a hash
     #analisar e ver se está da forma correta
     error = false
     #Are in the correct form?
@@ -38,9 +39,10 @@ class Log
       }
     end
     #Who is the primarKey?
-    @primarKey = v[:primarKey] if v.include? :primarKey #Else primarKey = :password
-    @last_login = primarLabel.to_sym
-    @temp[primarLabel.to_sym] = v if !error
+    @primarKey = v[v[:primarKey]].to_s if v.include? :primarKey #Else primarKey = :password
+    @last_login = v[v[:meta]].to_s
+    @meta = v[:meta]
+    @temp[@last_login.to_sym] = v if !error
     self.crypt#Call Cipher and cipher the primarKey
     return true if !error
   end

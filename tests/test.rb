@@ -12,6 +12,8 @@ msg.userData = {
 msg.registerRule = {
   login: String,
   password: String,
+  primarKey: :password,
+  meta: :login,
   not: {
     password: Default[:badChars]
   }
