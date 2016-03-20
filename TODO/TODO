@@ -1,10 +1,6 @@
 
 Criar criptografador de dados(*ON)
 
-Criar manuseador de ações(Action handler)
-
-Criar criador de modelo
-
 Criar tipo de dados do Usuário
 =>  guardar dados
 => ler dados
@@ -12,5 +8,12 @@ Criar tipo de dados do Usuário
 Criar mandador de dados(Menssagems)
 
 Criar recebedor de dados(Menssgems)
+
+Criar manuseador de ações(Action handler)
+
+Criar criador de modelo
+
+
+
 
 Criar criador de banco de dados
