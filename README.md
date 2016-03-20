@@ -1,7 +1,8 @@
-# Log
+# Log Version 0.1-alpha
 From Jpro-Express. Login system creator. Log
-<h5>I'm crashing my head out in crypt \>~\<</h5>
-<p>Helps apreciated U.U</p>
+
+<p>Helps appreciated U.U</p>
+
 <h5>Installing</h5>
 <p>Put the <code>bin/principals/</code> in the <code>PATH</code></p>
 
@@ -22,20 +23,20 @@ From Jpro-Express. Login system creator. Log
 >   }
 > }
 >
-> log.register '01TheFirst', ({
+> log.register ({
 >   login: 'Jefferson',
->   password: '1234'
+>   password: "1234"
 > })
 >
 >
 > puts log.login({               #
 >   login: 'Jefferson',          # => true
->   password: '1234'             #
+>   password: "1234"             #
 > })                             #
 >
 > puts log.login({               #
 >   login: 'Bart_baker',         # => false
->   password: '666'              #
+>   password: "666"              #
 > })                             #
 >
 >

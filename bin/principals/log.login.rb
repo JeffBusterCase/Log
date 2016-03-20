@@ -3,6 +3,7 @@ class Log
   @last_log = nil
   def login loging #log is a hash with the corrects requesteds inputs
     @last_log = loging
+    puts @last_log
     @last_login = loging[@meta].to_sym
     willReturnTrue = false
     if !@databaseBanc

@@ -16,12 +16,12 @@ log.registerRule = {
   }
 }
 
-minha_conta = {
-  name: 'Jefferson',
-  senha: '123456789abcdefghijk'
-}
-
-log.register minha_conta
-
-puts "Entrou na conta, #{minha_conta[:name]} ? #{log.login(minha_conta)}",
-     "Entrou na conta, nil? #{log.login(name: 'nil', senha: 'nil7777777777777')}"
+log.register ({
+    name: "Jefferson",
+    senha: "jeffpasswordbomfim"
+})
+p log
+puts log.login({
+    name: "Jefferson",
+    senha: "jeffpasswordbomfim"
+})
