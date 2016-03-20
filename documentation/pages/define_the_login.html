@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create a instance</title>
+    <link rel="stylesheet" href="../doc.css" media="screen" title="no title" charset="utf-8">
+  </head>
+  <body>
+    <div id="back_ground">
+      <div id="fore_ground">
+        <table id="MainTable">
+          <!--Start Side Table-->
+          <tr class="fore_table">
+            <td>
+              <!--Big-->
+              <a href="../doc.html"><h5>Class Log<h5></a>
+            </td>
+            <!--Tynis-->
+            <td>
+              <a href="./Create_a_instance.html">#new</a>
+            </td>
+            <td>
+              <a href="./define_the_login.html">#registerRule=</a>
+            </td>
+            <td>
+              <a href="./register.html">#register</a>
+            </td>
+            <td>
+              <a href="./login.html">#login</a>
+            </td>
+            <td>
+              <a href="./tempDB.html">#temp</a>
+            </td>
+          </tr><!--End Side Table-->
+          <!--Start Right Side Table or Main Table-->
+          <tr class="fore_table" id>
+            <td>
+              <!--Contents-->
+              <div class="ExplanationPage">
+
+                <h4 class='topic' id="code">#registerRule=</h4>
+                <div class="code"><br>
+                  log = Log.new<br>
+                  log.registerRule = {<br>
+                    password: String,<br>
+                    login: String,<br>
+                    meta: :login,<br>
+                    primarKey: :password,<br>
+                    not: {<br>
+                      login: Default[:badChars],<br>
+                      password: Default[:badChars]<br>
+                    }<br>
+                  }<br>
+
+                </div><br>
+                <p><br>
+                  Or you can use an automatic form
+                </p><br>
+                <div class="code"><br>
+                  log.useDefaultRule <br>
+                </div><br>
+                <p>
+                  This will Generate a login where have a
+                  <u style="font-family: monospace">:password</u> and a <u style="font-family: monospace">:login</u> automatic
+                </p>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

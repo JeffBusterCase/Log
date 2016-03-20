@@ -7,19 +7,13 @@ log = Log.new
 log.useDefaultRule
 
 log.register ({
-   login: 'Jefferson',
-   password: "12345678910111231234"
+  login: 'JeffBusterCase',
+  password: "1234567890123456"
 })
 
 puts log.login({
-  login: "Jefferson",
-  password: "12345678910111231234"
- })
- puts log.login({
-   login: "Jefferson",
-   password: "12345678910111231234"
-  })
-  puts log.login({
-    login: "Jefferson",
-    password: "010101010101010101010101"
-   })
+  login: "JeffBusterCase",
+  password: "1234567890123456"
+})
+
+puts log.temp

@@ -1,0 +1,39 @@
+#MainTable {
+  width: 100%;
+  border-radius: 1.4%;
+
+}
+#back_ground {
+  background-color: #322574;
+  border-radius: 1.5%;
+}
+#fore_ground {
+  background-color: #012f4f
+  border-radius: 0.99%
+}
+.ExplanationPage {
+  background-color: #040207;
+}
+p {
+  color: yellow;
+  font-family: monospace;
+}
+.code {
+  font-size: 15px;
+  border: solid white 1px;
+  border-radius: 4.9%;
+  width: 450px;
+  height: 270px;
+  font-family: monospace;
+  background-color: white;
+  color: #322574;
+}
+a:hover {
+  color: #eeaa09;
+}
+a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  font-family: cursive;
+}
