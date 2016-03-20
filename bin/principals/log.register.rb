@@ -1,7 +1,14 @@
 class Log
   #--Register--
-  attr_accessor :registerRule
-  attr_writer :registerKey_len
+  attr_reader :registerRule
+  def registerRule = x
+    @registerRule = x
+    @primarKey = @registerRule[:primarKey] if @registerRule.include? :primarKey #Else primarKey = :password
+    @meta = @registerRule[:meta]
+  end
+
+  @last_key = nil
+  @last_login = nil
   # Example:
   # => instance.registerRule = {
   # =>     login: String,
@@ -39,11 +46,13 @@ class Log
       }
     end
     #Who is the primarKey?
-    @primarKey = v[v[:primarKey]].to_s if v.include? :primarKey #Else primarKey = :password
-    @last_login = v[v[:meta]].to_s
-    @meta = v[:meta]
-    @temp[@last_login.to_sym] = v if !error
-    self.crypt#Call Cipher and cipher the primarKey
+    p v
+    p v[@primarKey]
+    p v[v[@primarKey]]
+    @last_key = v[@primarKey]
+    @last_login = v[@meta].to_sym
+    @temp[@last_login] = v if !error
+    crypt#Call Cipher and cipher the primarKey
     return true if !error
   end
 end

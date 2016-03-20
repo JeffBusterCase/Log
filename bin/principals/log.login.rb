@@ -6,7 +6,7 @@ class Log
     willReturnTrue = false
     if !@databaseBanc
       if @temp.include? log[@meta]
-        willReturnTrue = true if log[@primarKey] == self.decrypt(@temp[@meta][@primarKey])#Está criptographada
+        willReturnTrue = true if log[@primarKey] == decrypt(@temp[log[@meta]][@primarKey])#Está criptographada
       end
       return willReturnTrue
     else
