@@ -1,8 +1,9 @@
 class Log
   #--Register--
   attr_reader :registerRule
-  def registerRule = x
+  def registerRule=x
     @registerRule = x
+    #Who is the primarKey?
     @primarKey = @registerRule[:primarKey] if @registerRule.include? :primarKey #Else primarKey = :password
     @meta = @registerRule[:meta]
   end
@@ -45,10 +46,6 @@ class Log
         }
       }
     end
-    #Who is the primarKey?
-    p v
-    p v[@primarKey]
-    p v[v[@primarKey]]
     @last_key = v[@primarKey]
     @last_login = v[@meta].to_sym
     @temp[@last_login] = v if !error

@@ -1,12 +1,20 @@
 class Log
   @last_login = nil
   @last_log = nil
-  def login log #log is a hash with the corrects requesteds inputs
-    @last_log = log
+  def login loging #log is a hash with the corrects requesteds inputs
+    @last_log = loging
+    @last_login = loging[@meta].to_sym
     willReturnTrue = false
     if !@databaseBanc
-      if @temp.include? log[@meta]
-        willReturnTrue = true if log[@primarKey] == decrypt(@temp[log[@meta]][@primarKey])#Está criptographada
+      puts "No databaseBanc"
+      if @temp.include? loging[@meta].to_sym
+        puts "Yes include"
+        stored_key = decrypt
+        willReturnTrue = true if loging[@primarKey] == stored_key
+        p loging
+        puts loging[@primarKey],
+             "para",
+             decrypt
       end
       return willReturnTrue
     else
