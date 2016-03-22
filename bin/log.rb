@@ -3,6 +3,7 @@ require 'openssl'
 #Require It self
 ["constants",
  "tempdatabase",
+ "logout",
  "debug",
  "create",
  "crypt",

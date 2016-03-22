@@ -9,7 +9,10 @@ class Log
     @databaseBanc = DataBanc.new if !databaseBanc 
     @databaseBanc = false if !databaseBanc
     @temp = {} if !databaseBanc
+    @userData = {}
+    @users = []
     @registerRule = {}
+    @debugger_file = nil
   end
 
 end

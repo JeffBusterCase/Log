@@ -9,6 +9,8 @@ class Log
             }
         elsif @debugger_file == $stdout 
             @debugger_file.puts word
+        elsif @debugger_file == nil
+            nil
         else 
             tmp = File.read(@debugger_file)
             File.open(@debugger_file, "w"){|f|

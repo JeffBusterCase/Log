@@ -3,13 +3,13 @@ Criar criptografador de dados(*Completed)
 
 Criar log de acontecimentos(*Completed)
 
-Criar tipo de dados do Usuário(*ON)
+Criar tipo de dados do Usuário(*Completed)
 =>  guardar dados
 => ler dados
 
-Criar mandador de dados(Menssagems)
+Criar mandador de dados(*ON)
 
-Criar recebedor de dados(Menssgems)
+Criar recebedor de dados(*ON)
 
 Criar manuseador de ações(Action handler)
 

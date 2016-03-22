@@ -1,6 +1,7 @@
 class Log
   @last_login = nil
   @last_log = nil
+  
   def login loging #log is a hash with the corrects requesteds inputs
     raise RuleNotDefinedException, "registerRule not defined yet!****" if @registerRule == nil
 
@@ -14,6 +15,7 @@ class Log
       if @temp.include? loging[@meta].to_sym
         stored_key = decrypt
         willReturnTrue = true if loging[@primarKey] == stored_key
+        @users << @last_login.to_sym if loging[@primarKey] == stored_key && !(@users.include? @last_login)
         #Store in Debug
         log_debug "Log of #{@last_login} at #{Time.now}"
       end
