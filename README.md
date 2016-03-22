@@ -10,9 +10,9 @@ From Jpro-Express. Login system creator. Log
 ```Ruby
 > require 'log'
 >
-> log = Log.new  
+> logc = Log.new  
 >
-> log.registerRule = {
+> logc.registerRule = {
 >   login: String,
 >   password: String,
 >   primarKey: :password,
@@ -23,18 +23,18 @@ From Jpro-Express. Login system creator. Log
 >   }
 > }
 >
-> log.register ({
+> logc.register ({
 >   login: 'Jefferson',
 >   password: "1234567891011123"
 > })
 >
 >
-> puts log.login({               #
+> puts logc.login({               #
 >   login: 'Jefferson',          # => true
 >   password: "1234567891011123" #
 > })                             #
 >
-> puts log.login({               #
+> puts logc.login({               #
 >   login: 'Bart_baker',         # => false
 >   password: "666"              #
 > })                             #
