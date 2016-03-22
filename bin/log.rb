@@ -2,7 +2,8 @@ require_relative "./principals/log"
 require 'openssl'
 #Require It self
 ["constants",
-  "tempdatabase",
+ "tempdatabase",
+ "debug",
  "create",
  "crypt",
  "login",
