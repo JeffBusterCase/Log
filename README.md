@@ -45,6 +45,8 @@ From Jpro-Express. Login system creator. Log
 >
 ```
 
+* After the register if you register a account in a variable the variable will be overrided by the crypted version
+
 <h4>This is a pack from Jpro-Express</h4>
 
 <h2>Thanks for the clone!</h2>

@@ -2,18 +2,16 @@ require '../bin/log'
 
 =begin  Appending user type of data
 =end
-log = Log.new
+logc = Log.new
 
-log.useDefaultRule
+logc.useDefaultRule
 
-log.register ({
-  login: 'JeffBusterCase',
-  password: "1234567890123456"
+logc.register({
+  login: "jefferson",
+  password: "123456789987654321"
 })
 
-puts log.login({
-  login: "JeffBusterCase",
-  password: "1234567890123456"
-})
 
-puts log.temp
+puts logc.login( {login: "jefferson", password: "123456789987654321"} ), #true
+     logc.login( {login: "not_registered_account", password: "not_registered_password"} ) #false
+
