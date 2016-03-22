@@ -5,7 +5,7 @@ class Log
 {
     public static void Main(string[] args)
     {
-        goto ("../tests/test.rb")
+        //Run and return response
         Console.WriteLine("Finished")
     }
 }
