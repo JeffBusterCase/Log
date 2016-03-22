@@ -23,7 +23,6 @@ class Log
       decipher.key = @last_key
       decipher.iv = @last_key
       a = (decipher.update(@temp[@last_login][@primarKey]) + decipher.final)
-      log_debug "Log of #{@last_login} at #{Time.now}"
       return a
     else
       raise "Key.length too short\nMinimum of '16' caracters"

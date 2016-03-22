@@ -5,12 +5,11 @@
 class Log
   # => Instantiate
   def initialize debug=false, databaseBanc=false
-    @debug = false if !debug
+    @debug = false if !debug #Only will append text after Log.create()
     @databaseBanc = DataBanc.new if !databaseBanc 
     @databaseBanc = false if !databaseBanc
     @temp = {} if !databaseBanc
     @registerRule = {}
-    @debugger_file = "../../debug/log"
   end
 
 end

@@ -2,9 +2,17 @@ class Log
     @debug = true
     attr_writer :debugger_file
     def log_debug word
-        if @debug
-            File.open(@debugger_file, "a"){|f|
-                f.puts word + " at Year: #{ Time.now.year} Month: #{Time.now.month} Day: #{Time.now.day} Hour: #{Time.now.hour}:#{Time.now.min}:#{ Time.now.sec}"
+        if @debug && Log_Created && (@debugger_file.is_a(String))
+            tmp = File.read(@debugger_file)
+            File.open(@debugger_file, "w"){|f|
+                f.puts (tmp << word + " at Year: #{ Time.now.year} Month: #{Time.now.month} Day: #{Time.now.day} Hour: #{Time.now.hour}:#{Time.now.min}:#{ Time.now.sec}")
+            }
+        elsif @debugger_file == $stdout 
+            @debugger_file.puts word
+        else 
+            tmp = File.read(@debugger_file)
+            File.open(@debugger_file, "w"){|f|
+                f.puts (tmp << "#{word}")    
             }
         end
         word

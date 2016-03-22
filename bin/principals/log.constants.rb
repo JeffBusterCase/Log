@@ -4,6 +4,11 @@ module Log_Constants
   }
 end
 class Log
+  #CONSTANTS
+  Log_Created = false
+  
+  
+  
   #Errors
   class Error < RuntimeError
   end

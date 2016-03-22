@@ -14,7 +14,8 @@ class Log
       if @temp.include? loging[@meta].to_sym
         stored_key = decrypt
         willReturnTrue = true if loging[@primarKey] == stored_key
-
+        #Store in Debug
+        log_debug "Log of #{@last_login} at #{Time.now}"
       end
       return willReturnTrue
     else
