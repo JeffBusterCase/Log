@@ -39,6 +39,13 @@ class Log
         @last_key = login_and_password[@primarKey]
         raise RuntimeError, "Invalid #{@meta} or #{@primarKey}" if !(@users.include? @last_login.to_sym) &&  !(login)
         
+        @userData[@last_login][:friends].each {|v|
+            v.each { |k, gv|
+                raise RuntimeError, "User already in friend list of `#{@last_login}'" if v[@meta.to_sym] == of_who.to_s 
+            }
+            
+        }
+        raise RuntimeError, "User already in friend list of #{@last_login}" if !(@userData[@last_login])
         @userData[of_who.to_sym][:friends] << {
             @meta.to_sym => @last_login.to_s,
             k: key,
@@ -49,5 +56,6 @@ class Log
             k: key,
             iv: iV_TAKE_CARE_OF_THIS
         }
+        return true
     end
 end

@@ -40,6 +40,12 @@ logc.messageRule = {
     type: :all
 }
 
+p logc.send_add_request({
+    login: 'jefferson', 
+    password: '123456789987654321'},
+    'philipe'
+)
+
 p logc.send  Msg.new( logc.messageRule, msg )   
 
 p logc.see_user_data 'jefferson', :all
