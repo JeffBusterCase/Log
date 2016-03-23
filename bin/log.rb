@@ -20,7 +20,8 @@ require 'openssl'
    require_relative "../databanc/log.databanc.#{lib}"
  }
  #Require Library
- ["cortez"].each { |lib|
+ ["cortez", 
+  "Msg"].each { |lib|
    require_relative "../lib/#{lib}"
  }
  include Log_Constants
