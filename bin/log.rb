@@ -3,6 +3,9 @@ require 'openssl'
 #Require It self
 ["constants",
  "tempdatabase",
+ "add_friend",
+ "sender",
+ "catcher",
  "logout",
  "debug",
  "create",

@@ -14,7 +14,7 @@ class Msg
             raise RuntimeError, "Invalid message Format. `#{k}' => `#{v}' not found" if !(msg.include? k)
         }
         
-        raise RuntimeError, "Invalid format for `#{msg[:message].class}'. required a `#{messageRule[:message].class}'" if (messageRule[:message].class != msg[:message].class)
+        raise RuntimeError, "Invalid format for `#{msg[:message].class}'. required a `#{messageRule[:message]}'" if (messageRule[:message] != msg[:message].class)
         
     end
     

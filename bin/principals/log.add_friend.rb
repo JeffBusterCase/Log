@@ -9,7 +9,7 @@ class Log
         #the generated cryptographed key
         @last_login = login_and_password[@meta]
         @last_key = login_and_password[@primarKey]
-        raise RuntimeError, "Invalid #{@meta} or #{@primarKey}" if !(@users.include? @last_login) &&  !(login)
+        raise RuntimeError, "Invalid #{@meta} or #{@primarKey}" if !(@users.include? @last_login) &&  !(login({@meta.to_sym => @last_login, @primarKey => @last_key}))
 
         #Otherwise is all Ok
         append_user_data to_who.to_s, "add_request_n_#{rand(7_000_000)}", @last_login.to_s
