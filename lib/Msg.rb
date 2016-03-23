@@ -19,11 +19,11 @@ class Msg
     end
     
     
-    def crypted password
+    def crypted login_and_password
         
     end
     
-    def decripted password
+    def decripted login_and_password
         
     end
 end
