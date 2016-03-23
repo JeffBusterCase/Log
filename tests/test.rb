@@ -13,25 +13,28 @@ msg = {
 
 logc.useDefaultRule
 
+puts 'Register Jefferson'
 logc.register({
     login: 'jefferson',
     password: '123456789987654321'
 })
-
+puts "Register Philipe"
 logc.register({
     login: 'philipe',
     password: '987654321987654321'
 })
-
+puts "Login Philipe"
 p logc.login({
     login: 'philipe',
     password: '987654321987654321'
 })
+puts "Login Jefferson"
 p logc.login({
      login: 'jefferson',
     password: '123456789987654321' # Return False. Why!?
 })
 
+puts "Define messageRule"
 logc.messageRule = {
     sender: :meta,
     catcher: :meta_catcher,
@@ -39,12 +42,15 @@ logc.messageRule = {
     topic: String,
     type: :all
 }
-
+puts 'send_add_request to philipe'
 p logc.send_add_request({
     login: 'jefferson', 
     password: '123456789987654321'},
     'philipe'
 )
+
+puts "accept_add_request from jefferson" 
+p logc.accept_add_request({login: 'jefferson', password: '987654321987654321'}, 'jefferson')#Get error
 
 p logc.send  Msg.new( logc.messageRule, msg )   
 
