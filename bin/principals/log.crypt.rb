@@ -12,6 +12,7 @@ class Log
       @temp[@last_login][@primarKey] = cipher.update(@last_key) + cipher.final
       log_debug "Registered #{@temp[@last_login][@meta]} as " # as (username)
       @userData[@last_login] = {
+        friends: [],
         boxes: 1,#DefaultBox 
         box1: "\n(1)__system__:This is the default text box\n"#(line number)sender:message
       }

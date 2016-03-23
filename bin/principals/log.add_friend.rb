@@ -26,24 +26,28 @@ class Log
         key = cipher.random_key
         
         #Make the iv be better than 16 caracteres
-        tmp_iv = @last_login.to_s + of_who.to_s
-        while tmp_iv.length < 16
-            tmp_iv << "_"
+        iV_TAKE_CARE_OF_THIS = @last_login.to_s + of_who.to_s
+        while iV_TAKE_CARE_OF_THIS.length < 16
+            iV_TAKE_CARE_OF_THIS << rand(10)
         end
         
-        iV_TAKE_CARE_OF_THIS = @tmp_iv
         
         #if you want you can override and make a better from your ideas
         #But be careful here is this part
         #the login and password is really important***
         @last_login = login_and_password[@meta]
         @last_key = login_and_password[@primarKey]
-        raise RuntimeError, "Invalid #{@meta} or #{@primarKey}" if !(@users.include? @last_login) &&  !(login)
+        raise RuntimeError, "Invalid #{@meta} or #{@primarKey}" if !(@users.include? @last_login.to_sym) &&  !(login)
         
-        
-        @userData[@last_login][:friends] << {
-            @meta.to_sym => of_who,
-            
+        @userData[of_who.to_sym][:friends] << {
+            @meta.to_sym => @last_login.to_s,
+            k: key,
+            iv: iV_TAKE_CARE_OF_THIS
+        }
+        @userData[@last_login.to_sym][:friends] << {
+            @meta.to_sym => of_who.to_s,
+            k: key,
+            iv: iV_TAKE_CARE_OF_THIS
         }
     end
 end
