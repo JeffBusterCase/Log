@@ -24,12 +24,12 @@ logc.register({
 })
 
 p logc.login({
-    login: 'jefferson',
-    password: '123456789987654321'
-})
-p logc.login({
     login: 'philipe',
     password: '987654321987654321'
+})
+p logc.login({
+     login: 'jefferson',
+    password: '123456789987654321' # Return False. Why!?
 })
 
 logc.messageRule = {
