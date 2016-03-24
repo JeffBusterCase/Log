@@ -45,12 +45,16 @@ class Log
         @userData[of_who.to_sym][:friends] << {
             @meta.to_sym => @last_login.to_s,
             k: key,
-            iv: iV_TAKE_CARE_OF_THIS
+            iv: iV_TAKE_CARE_OF_THIS,
+            msg_number: 0,
+            msgs: [] 
         }
         @userData[@last_login.to_sym][:friends] << {
             @meta.to_sym => of_who.to_s,
             k: key,
-            iv: iV_TAKE_CARE_OF_THIS
+            iv: iV_TAKE_CARE_OF_THIS,
+            msg_number: 0,
+            msgs: []
         }
         @userData[@last_login.to_sym].each {|k, v|
             @userData[@last_login.to_sym].delete(k) if k.to_s.include? "add_request_n_"

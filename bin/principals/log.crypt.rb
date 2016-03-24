@@ -13,6 +13,7 @@ class Log
       log_debug "Registered #{@temp[@last_login][@meta]} as " # as (username)
       @userData[@last_login] = {
         friends: [],
+        inbox_messages_number: 0,
         boxes: 1,#DefaultBox 
         box1: "\n(1)__system__:This is the default text box\n"#(line number)sender:message
       }
