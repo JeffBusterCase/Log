@@ -52,7 +52,7 @@ p logc.send_add_request({
 puts "accept_add_request from jefferson" 
 p logc.accept_add_request({login: 'philipe', password: '987654321987654321'}, 'jefferson')
 
-p logc.send  Msg.new( logc.messageRule, msg )
+p logc.send  Msg.new( logc.messageRule, msg ), {login: 'jefferson', password: '123456789123456789'}
 
 p logc.see_user_data 'jefferson', :all
 p logc.see_user_data 'philipe', :all

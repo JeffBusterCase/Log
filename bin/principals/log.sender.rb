@@ -14,7 +14,7 @@ class Log
     #
     # => }
     
-    def send msg_class_instance
-       
+    def send msg_class_instance, login_and_password
+       crp = msg_class_instance.crypted
     end
 end

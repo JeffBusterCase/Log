@@ -24,7 +24,8 @@ class Log
   def decrypt
     decipher = OpenSSL::Cipher.new('AES-128-CFB')
     if @last_key.length >= 16
-      # TODO: descryptograpth
+      # TODO: 
+      decipher.decrypt
       decipher.key = @last_key
       decipher.iv = @last_key
       a = (decipher.update(@temp[@last_login][@primarKey]) + decipher.final)

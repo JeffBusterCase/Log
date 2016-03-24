@@ -38,8 +38,6 @@ class Log
         #the login and password is really important***
         @last_key = login_and_password[@primarKey]
         raise RuntimeError, "Invalid #{@meta} or #{@primarKey}" if !(@users.include? @last_login.to_sym) &&  !(login({@meta.to_sym => @last_login, @primarKey.to_sym => @last_key}))
-        puts "UserData: "
-        p @userData
         # FIXME: refazer processo abaixo
         raise RuntimeError, "User already in friends list of `#{@last_login}'" if (@userData[@last_login.to_sym][:friends].include? of_who.to_sym)
         
@@ -53,6 +51,9 @@ class Log
             @meta.to_sym => of_who.to_s,
             k: key,
             iv: iV_TAKE_CARE_OF_THIS
+        }
+        @userData[@last_login.to_sym].each {|k, v|
+            @userData[@last_login.to_sym].delete(k) if k.to_s.include? "add_request_n_"
         }
         return true
     end
