@@ -22,12 +22,39 @@ class Log
 
   # => Return determined message from determined person
   def inbox_from login_and_password, person_name, option=:all, subOption=nil
-    # => :all
-    # => :last
-    # => :first
-    # => :where
+    # => :all #+>All from  that person
+    # => :last #+> Last from that person
+    # => :first #+> First from that person
+    # => :where #+> Need sub option with the txt to search in the messages
     # if option is :where then subOption is needed
     # => inbox_from({login: 'fulano', password: 'siclano'}, 'primoFulano', :where, "jasons phone is")
-
+    
+    @last_login = login_and_password[@meta.to_sym]
+    @last_key = login_and_password[@primarkey.to_sym]
+    
+    
+    # TODO: Verify if login is correct
+    
+    # TODO: Verify if user is Online
+    
+    case option.to_sym
+    when :all
+      return @userData[@last_login][:friends]
+    when :last
+      @userData[@last_login][:friends].each {|hashes|
+        if hashes[@meta.to_sym].to_s == person_name.to_s
+          _last = hashes[:msgs].last
+          
+          raise RuntimeError, "Something goes wrong here =(" if _last.class != Msg
+          
+          return _last.decrypted({key: hashes[:k], iv: hashes[:iv]})
+        end
+      }
+      
+    when :first
+    when :where
+    else
+      raise RuntimeError, "Undefined option #{option}.to_sym"
+    end
   end
 end
