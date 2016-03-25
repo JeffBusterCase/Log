@@ -13,28 +13,28 @@ msg = {
 
 logc.useDefaultRule
 
-puts 'Register Jefferson'
+
 logc.register({
     login: 'jefferson',
     password: '123456789987654321'
 })
-puts "Register Philipe"
+
 logc.register({
     login: 'philipe',
     password: '987654321987654321'
 })
-puts "Login Philipe"
-p logc.login({
+
+logc.login({
     login: 'philipe',
     password: '987654321987654321'
 })
-puts "Login Jefferson"
-p logc.login({
+
+logc.login({
      login: 'jefferson',
     password: '123456789987654321' # Return False. Why!?
 })
 
-puts "Define messageRule"
+
 logc.messageRule = {
     sender: :meta,
     catcher: :meta_catcher,
@@ -42,17 +42,18 @@ logc.messageRule = {
     topic: String,
     type: :all
 }
-puts 'send_add_request to philipe'
-p logc.send_add_request({
-    login: 'jefferson', 
+
+
+logc.send_add_request({
+    login: 'jefferson',
     password: '123456789987654321'},
     'philipe'
 )
 
-puts "accept_add_request from jefferson" 
-p logc.accept_add_request({login: 'philipe', password: '987654321987654321'}, 'jefferson')
 
-p logc.send  Msg.new( logc.messageRule, msg ), {login: 'jefferson', password: '123456789123456789'}
+logc.accept_add_request({login: 'philipe', password: '987654321987654321'}, 'jefferson')
 
-p logc.see_user_data 'jefferson', :all
-p logc.see_user_data 'philipe', :all
+logc.send  Msg.new( logc.messageRule, msg ), {login: 'jefferson', password: '123456789123456789'}
+
+logc.see_user_data 'jefferson', :all
+logc.see_user_data 'philipe', :all
