@@ -53,3 +53,14 @@ class Msg
         return tmp
     end
 end
+
+module MSG
+   def self.decrypted(msg, key_and_iv, cipher_type="AES-128-CFB")
+        cipher = OpenSSL::Cipher.new(cipher_type)
+        cipher.decrypt
+        cipher.key = key_and_iv[:key]
+        cipher.iv = key_and_iv[:iv]
+        tmp = cipher.update(msg) + cipher.final
+        return tmp
+   end
+end

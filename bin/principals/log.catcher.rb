@@ -30,7 +30,7 @@ class Log
     # => inbox_from({login: 'fulano', password: 'siclano'}, 'primoFulano', :where, "jasons phone is")
     
     @last_login = login_and_password[@meta.to_sym]
-    @last_key = login_and_password[@primarkey.to_sym]
+    @last_key = login_and_password[@primarkey]
     
     
     # TODO: Verify if login is correct
@@ -39,15 +39,13 @@ class Log
     
     case option.to_sym
     when :all
-      return @userData[@last_login][:friends]
+      return @userData[@last_login.to_sym][:friends]
     when :last
-      @userData[@last_login][:friends].each {|hashes|
+      @userData[@last_login.to_sym][:friends].each {|hashes|
         if hashes[@meta.to_sym].to_s == person_name.to_s
-          _last = hashes[:msgs].last
-          
-          raise RuntimeError, "Something goes wrong here =(" if _last.class != Msg
-          
-          return _last.decrypted({key: hashes[:k], iv: hashes[:iv]})
+          _last = hashes[:msgs].last #Duplicated topic!!!!! delete one of they
+          p _last
+          return MSG.decrypted(_last[:msg][:message], {key: hashes[:k], iv: hashes[:iv]})
         end
       }
       

@@ -51,8 +51,16 @@ p logc.send(Msg.new( msg ), {login: 'jefferson', password: '123456789987654321'}
 msg = {
     sender: 'philipe',
     catcher: 'jefferson',
-    message: "Hello philipe How are you",
+    message: "Hello jefferson How are you",
     topic: 'Hello from philipe',
+    type: :private
+}
+
+msg2 = {
+    sender: 'jefferson',
+    catcher: 'philipe',
+    message: 'Hello philipe congratulations!',
+    topic: 'Say the word back to philipe',
     type: :private
 }
 
@@ -69,3 +77,9 @@ p logc.inbox_from({
     login: 'philipe',
     password: '987654321987654321'
   }, 'jefferson', :last)
+
+puts 'Sending message back to philipe'
+p logc.send( Msg.new( msg2 ), {login: 'jefferson', password: '123456789987654321'})
+
+puts "Philipe Reading the message back"
+p logc.inbox_from({login: 'philipe', password: '987654321987654321'}, 'jefferson', :last)
