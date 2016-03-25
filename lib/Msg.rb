@@ -1,27 +1,38 @@
 class Msg
     attr_accessor :msg
-    attr_accessor :messageRule_
+    
     @cipher = nil
-    @messageRule_ = {
-        sender: :meta,
-        catcher: :meta_catcher,
-        message: String,
-        topic: String,
-        type: :all
-    }
-    def initialize messageRule=@messageRule_, msg=@msg, cipher_type='AES-128-CFB'
+    
+    def initialize msg=@msg, cipher_type='AES-128-CFB'
         #Investigate the format of msg if is compatible with messageRule
-        messageRule.each {|k, v|
-            raise RuntimeError, "Invalid message Format. `#{k}' => `#{v}' not found" if !(msg.include? k)
+        @msg = msg
+        
+        @messageRule_ = {
+            sender: :meta,
+            catcher: :meta_catcher,
+            message: String,
+            topic: String,
+            type: :all
+        }#Without this here the program return bullshit(Error)
+        
+        @messageRule_.each {|k, v|
+            raise RuntimeError, "Invalid message Format. `#{k}' => `#{v}' not found" if !(@msg.include? k)
         }
         
-        raise RuntimeError, "Invalid format for `#{msg[:message].class}'. required a `#{messageRule[:message]}'" if (messageRule[:message] != msg[:message].class)
+        raise RuntimeError, "Invalid format for `#{msg[:message].class}'. required a `#{messageRule[:message]}'" if (@messageRule_[:message] != @msg[:message].class)
         
-        @msg = msg if @msg == nil
+        
         @cipher_type = cipher_type
+        return true
     end
-    
-    
+
+    def messageRule_
+        @messageRule_
+    end
+    def messageRule=(hash)
+        @messageRule_ = hash
+    end
+
     def crypted key_and_iv
         #used in Log
         @cipher = OpenSSL::Cipher.new(@cipher_type)

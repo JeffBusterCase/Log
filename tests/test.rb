@@ -45,7 +45,8 @@ msg = {
 }
 
 puts "Try send message to philipe"
-p logc.send  Msg.new( msg ), {login: 'jefferson', password: '123456789987654321'}
+p logc.send(Msg.new( msg ), {login: 'jefferson', password: '123456789987654321'})
+
 
 msg = {
     sender: 'philipe',
@@ -56,7 +57,7 @@ msg = {
 }
 
 puts "Try send message to jefferson"
-p logc.send  Msg.new( logc.messageRule, msg ), {login: 'philipe', password: '987654321987654312'}
+p logc.send(Msg.new( msg ), {login: 'philipe', password: '987654321987654312'})
 
 puts 'Data from jefferson'
 p logc.see_user_data 'jefferson', :all
