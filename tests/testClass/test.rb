@@ -31,3 +31,6 @@ xbia.send "Hello", :Xbia
 xbia.changeTo 'Xbia'
 
 puts xbia.received :Jefferson
+
+
+##Resolving Erron on sender.rb:40:in `block in send': Something goes reallt wrong, seems that you do not have the permossion to send message to that person (RintimeError)'
