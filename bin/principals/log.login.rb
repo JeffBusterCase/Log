@@ -21,9 +21,9 @@ class Log
       end
       return willReturnTrue
     else
-    #----------------------------------
-    # TODO: Analise if are in database using in DataBanc
-    return false #Because of TODO
+      #----------------------------------
+      # TODO: Analise if are in database using in DataBanc
+      return false #Because of TODO
     end
   end
 end

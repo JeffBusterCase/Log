@@ -23,6 +23,7 @@ class LogPlus
     def changeTo name
         @username = name.to_s
         @password = @account_list[@username.to_sym]
+        @registered = false #Later make a better implementation of this
     end
     @account_list = {}
     def normalize
@@ -42,7 +43,7 @@ class LogPlus
         @logc.register({
             @meta => @username,
             @primarKey => @tmpP
-        }) if @registered
+        }) if !(@registered)
         @registered = true
     end
 

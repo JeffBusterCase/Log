@@ -18,9 +18,6 @@ puts xbia.online?
 xbia.changeTo 'Xbia'
 puts xbia.online?
 
-xbia.login if !(xbia.online?)
-puts xbia.online?
-
 xbia.changeTo 'Jefferson'
 
 xbia.add_friend 'Xbia'
