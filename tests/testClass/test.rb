@@ -1,15 +1,36 @@
-my_account = LogPlus.new 'jefferson', '123456789987654321'
-my_account.meta = :login
-my_account.primarKey = :password
-my_account.normalize
-my_account.register
-my_account.login
+require './testClass'
 
-xbia = LogPlus.new 'Xbia', 'xbiaSuperbia171913313739717379979193'
+
+xbia = LogPlus.new 'Xbia', 'xbiasuperbia131719919793'
 xbia.meta = :login
 xbia.primarKey = :password
 xbia.normalize
 xbia.register
 xbia.login
 
+xbia.add_account 'Jefferson', '123456789987654321'
+xbia.changeTo 'Jefferson'
+xbia.register
+xbia.login
 
+
+puts xbia.online?
+xbia.changeTo 'Xbia'
+puts xbia.online?
+
+xbia.login if !(xbia.online?)
+puts xbia.online?
+
+xbia.changeTo 'Jefferson'
+
+xbia.add_friend 'Xbia'
+
+xbia.changeTo 'Xbia'
+
+xbia.accept 'Jefferson'
+
+xbia.send "Hello", :Xbia
+
+xbia.changeTo 'Xbia'
+
+puts xbia.received :Jefferson

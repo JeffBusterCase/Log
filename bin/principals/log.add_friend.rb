@@ -37,10 +37,15 @@ class Log
         #But be careful here is this part
         #the login and password is really important***
         @last_key = login_and_password[@primarKey]
-        raise RuntimeError, "Invalid #{@meta} or #{@primarKey}" if !(@users.include? @last_login.to_sym) &&  !(login({@meta.to_sym => @last_login, @primarKey.to_sym => @last_key}))
-        # FIXME: refazer processo abaixo
-        raise RuntimeError, "User already in friends list of `#{@last_login}'" if (@userData[@last_login.to_sym][:friends].include? of_who.to_sym)
-        
+        if  !(@users.include? @last_login.to_sym)
+            raise RuntimeError, "User not online #{@last_login}"
+        elsif !(login({@meta.to_sym => @last_login, @primarKey.to_sym => @last_key}))
+            raise RuntimeError, "Invalid #{@meta}=[#{@last_login}] or #{@primarKey}=[#{@last_key}]"
+        end
+        # NOTE: Verify if array of friends include a `of_who' already
+        @userData[@last_login.to_sym][:friends].each {|hashes|
+            raise RuntimeError, "User already in friends list of `#{@last_login}'" if hashes[@meta.to_sym] == of_who.to_s
+        }
         raise RuntimeError, "User never existed `#{of_who}'" if !(@temp.include? of_who.to_sym)
         @userData[of_who.to_sym][:friends] << {
             @meta.to_sym => @last_login.to_s,
