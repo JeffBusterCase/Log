@@ -42,7 +42,7 @@ Example:
 >
 > #Send add request and accept one
 > logc.send_add_request({login: 'julia', password: '987654321987654321'}, 'jefferson')
-> logc.accept_add_request({login: 'jefferson', passord:'987654321987654321'}, 'julia')
+> logc.accept_add_request({login: 'jefferson', password:'987654321987654321'}, 'julia')
 >
 >
 > # Now a send message to jefferson
