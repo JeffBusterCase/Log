@@ -24,7 +24,7 @@ logc.registerRule = {
   }
 }
 logc.register ({
-   login: 'Jefferson',
+  login: 'Jefferson',
   password: "1234567891011123"
 })
 puts logc.login({               #
