@@ -7,6 +7,7 @@ From Jpro-Express. Login system creator. Log
 <p>Put the <code>bin/principals/</code> in the <code>PATH</code></p>
 
 <h5>Try it Right Now!</h5>
+
 ```ruby
 require 'log'
 
@@ -27,13 +28,13 @@ logc.register ({
   password: "1234567891011123"
 })
 puts logc.login({               #
-  login: 'Jefferson',          # => true
-  password: "1234567891011123" #
-})                             #
+  login: 'Jefferson',           # => true
+  password: "1234567891011123"  #
+})                              #
 puts logc.login({               #
-  login: 'Bart_baker',         # => false
-  password: "666"              #
-})                             #
+  login: 'Bart_baker',          # => false
+  password: "666"               #
+})                              #
 ```
 
 * After the register if you register a account in a variable the variable will be overrided by the crypted version
