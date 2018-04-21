@@ -37,7 +37,7 @@ puts logc.login({               #
 })                              #
 ```
 
-* After the register if you register a account in a variable the variable will be overrided by the crypted version
+* After the register if you register an account in a variable the variable will be overrided by the crypted version
 * Already implemented ```Log.send``` and ```Log.inbox_from``` to see the recent messages
 * You need ```send_add_request``` to someone before sending messages to that person
 * Only the people in your friend list can see your messages if the type of it is ```:private```
